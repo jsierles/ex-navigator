@@ -210,7 +210,8 @@ export default class ExRouteRenderer {
     if (route.onDidFocus) {
       route.onDidFocus(event);
     }
-    if (route.scene.componentDidFocus) {
+    // The component isn't mounted yet if this is the first time it's rendered
+    if (route.scene && route.scene.componentDidFocus) {
       route.scene.componentDidFocus(event);
     }
 
